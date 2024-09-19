@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Clear any existing tool cache
         run: |
-          mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-          mkdir -p "${{ runner.tool_cache }}"
+          mv "${{ runner.tool_cache }}/${{ matrix.node-version }}" "${{ runner.tool_cache }}/${{ matrix.node-version }}.old"
+          mkdir -p "${{ runner.tool_cache }}/${{ matrix.node-version }}"
       - name: Setup Node - version ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
