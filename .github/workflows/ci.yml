@@ -18,10 +18,8 @@ jobs:
       - name: Archive tool cache
         run: |
           cd "${{ runner.tool_cache }}"
-          tar -czf tool_cache.tar.gz *
-          mkdir ${{ matrix.node-version }}
-          mv tool_cache.tar.gz ${{ matrix.node-version }}
+          tar -czf ${{ matrix.node-version }}-tool_cache.tar.gz *
       - name: Upload tool cache artifact
         uses: actions/upload-artifact@v4
         with:
-          path: ${{ runner.tool_cache }}/${{ matrix.node-version }}/tool_cache.tar.gz
+          path: ${{ runner.tool_cache }}/${{ matrix.node-version }}-tool_cache.tar.gz
