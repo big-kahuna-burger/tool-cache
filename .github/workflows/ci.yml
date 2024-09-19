@@ -22,4 +22,5 @@ jobs:
       - name: Upload tool cache artifact
         uses: actions/upload-artifact@v4
         with:
+          name: ${{ matrix.node-version }}-artifact
           path: ${{ runner.tool_cache }}/${{ matrix.node-version }}-tool_cache.tar.gz
